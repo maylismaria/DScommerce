@@ -15,6 +15,7 @@ public class Order {
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment;
+
     private OrderStatus status;
 
     @ManyToOne
