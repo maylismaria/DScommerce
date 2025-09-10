@@ -32,7 +32,7 @@ public class ProductService {
 
     @Transactional(readOnly = true)
     public Page<ProductDTO> findAll(Pageable pageable){
-       Page<Product> result = repository.findAll(pageable);
+        Page<Product> result = repository.findAll(pageable);
         return result.map(x -> new ProductDTO(x));
     }
 
@@ -56,7 +56,7 @@ public class ProductService {
             entity = repository.save(entity);
             return new ProductDTO(entity);
 
-    }
+        }
         catch (EntityNotFoundException e) {
             throw new ResourceNotFoundException("Recurso não encontado");
         }
@@ -82,7 +82,5 @@ public class ProductService {
         entity.setPrice(dto.getPrice());
         entity.setImgUrl(dto.getImgUrl());
     }
-
-
 
 }
