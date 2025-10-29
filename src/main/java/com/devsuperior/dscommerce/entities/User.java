@@ -68,6 +68,21 @@ public class User implements UserDetails {
         return name;
     }
 
+    // adiciona o role
+    public void addRole(Role role) {
+        roles.add(role);
+    }
+
+    // testa se o usuario tem o role
+    public boolean hasRole(String roleName) {
+        for (Role role : roles) {
+            if (role.getAuthority().equals(roleName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
@@ -124,6 +139,10 @@ public class User implements UserDetails {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
     }
 
     public void setBirthDate(LocalDate birthDate) {
