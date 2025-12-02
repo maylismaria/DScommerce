@@ -64,12 +64,12 @@ public class User implements UserDetails {
         return name;
     }
 
-    // adiciona o role
+
     public void addRole(Role role) {
         roles.add(role);
     }
 
-    // testa se o usuario tem o role
+
     public boolean hasRole(String roleName) {
         for (Role role : roles) {
             if (role.getAuthority().equals(roleName)) {
@@ -78,6 +78,7 @@ public class User implements UserDetails {
         }
         return false;
     }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
